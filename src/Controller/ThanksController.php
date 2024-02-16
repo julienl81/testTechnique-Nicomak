@@ -13,7 +13,7 @@ class ThanksController extends AbstractController
 {
     public function __construct(private EntityManagerInterface $entityManager) {}
 
-    #[Route('/thanks', name: 'app_thanks')]
+    #[Route('/', name: 'app_thanks')]
     public function index(): Response
     {
         $thanks = $this->entityManager->getRepository(Thanks::class)->findAll();
