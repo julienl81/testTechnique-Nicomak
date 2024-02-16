@@ -26,7 +26,7 @@ class AppFixtures extends Fixture
                 $user,
                 $plaintextPassword
             );
-        
+
             $user
                 ->setName($name)
                 ->setPassword($hashedPassword)
@@ -36,7 +36,7 @@ class AppFixtures extends Fixture
             $manager->persist($user);
         }
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 30; $i++) {
 
             $thanks = new Thanks();
             $fromWho = $users[array_rand($users)];
@@ -55,7 +55,6 @@ class AppFixtures extends Fixture
             $manager->persist($thanks);
         }
 
-        $thanks = new Thanks();
 
         $manager->flush();
     }
