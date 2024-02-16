@@ -25,6 +25,10 @@ body {
     justify-content: center;
 }
 
+.navbar-collapse {
+    justify-content: center;
+}
+
 .nav-link {
     color: black;
     text-align: center;
