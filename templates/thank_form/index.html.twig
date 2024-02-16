@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ThankFormController!
+{% endblock %}
+
+{% block body %}
+
+	<div class="container mt-5">
+
+<h2>Ajouter un remerciement à vos collègues</h2>
+
+		<div class="form mt-5">
+			{{ form_start(form, {'attr': {'class': 'form'}}) }}
+
+			<div class="row mt-2">
+				<div class="col-md-6 col-lg-6">
+					{{ form_row(form.fromWho, {'attr': {'class': 'form-control'}}) }}
+				</div>
+
+				<div class="col-md-6 col-lg-6">
+					{{ form_row(form.toWho, {'attr': {'class': 'form-control'}}) }}
+				</div>
+			</div>
+
+			<div class="row mt-2">
+				<div class="col-md-12">
+					{{ form_row(form.message, {'attr': {'class': 'form-control'}}) }}
+				</div>
+			</div>
+
+			<div class="row mt-1">
+				<div class="col-md-12 text-end">
+					{{ form_row(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+				</div>
+			</div>
+
+			{{ form_end(form) }}
+		</div>
+
+	</div>
+
+
+{% endblock %}

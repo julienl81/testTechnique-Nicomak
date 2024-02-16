@@ -1,37 +1,45 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Espace perso{% endblock %}
+{% block title %}Espace perso
+{% endblock %}
 
 {% block body %}
-    <h1>Bienvenue sur ton espace</h1>
 
-    <p>Listes des remerciements</p>
+	<div class="container mt-5">
+		<div class="row">
+			<h2 class="col-md-6">Liste des remerciements</h2>
+			<div class=" col-md-6 d-flex justify-content-end">
+				<a href="{{ path('app_thanks_form')}}" class="btn btn-primary">Ajouter un remerciements</a>
+			</div>
+		</div>
 
-<div class="container">
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">From</th>
-      <th scope="col">To</th>
-      <th scope="col">Message</th>
-      <th scope="col">Envoyé le</th>
-    </tr>
-  </thead>
+		<table class="table table-striped table-hover shadow">
+			<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">De la part de :</th>
+					<th scope="col">Pour :</th>
+					<th scope="col">Message</th>
+					<th scope="col">Envoyé le</th>
+				</tr>
+			</thead>
 
-  {% for thank in thanks %}
+			{% for thank in thanks %}
 
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td><img class="avatar-small" src="{{ asset("assets/avatars/#{thank.fromWho.avatar}") }}" alt="avatar"> {{ thank.fromWho.name }}  </td>
-      <td><img class="avatar-small" src="{{ asset("assets/avatars/#{thank.toWho.avatar}") }}" alt="avatar"> {{ thank.toWho.avatar }}</td>
-      <td>{{ thank.message }}</td>
-      <td>{{ thank.createdAt|date('Y-m-d') }}</td>
-    </tr>
-  </tbody>
-  {% endfor %}
+				<tbody>
+					<tr>
+						<th scope="row">{{ thank.id }}</th>
+						<td><img class="avatar-small" src="{{ asset("assets/avatars/#{thank.fromWho.avatar}") }}" alt="avatar">
+							{{ thank.fromWho.name }}
+						</td>
+						<td><img class="avatar-small" src="{{ asset("assets/avatars/#{thank.toWho.avatar}") }}" alt="avatar">
+							{{ thank.toWho.avatar }}</td>
+						<td>{{ thank.message }}</td>
+						<td>{{ thank.createdAt|date('Y-m-d') }}</td>
+					</tr>
+				</tbody>
+			{% endfor %}
 
-</div>
+		</div>
 
-{% endblock %}
+	{% endblock %}
